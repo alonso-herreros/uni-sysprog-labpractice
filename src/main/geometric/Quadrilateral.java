@@ -25,7 +25,7 @@ public abstract class Quadrilateral extends Figure {
 		Point[] closestVerts = v1.orderNearest(new Point[]{v2,v3,v4});
 		return v1.distance(closestVerts[1]) == closestVerts[0].distance(closestVerts[2])
 			&& v1.distance(closestVerts[2]) == closestVerts[0].distance(closestVerts[1])
-			&& v1.orthogonal(closestVerts[0], v1.nearest(new Point[]{closestVerts[1], closestVerts[2]}));
+			&& v1.orthogonal(closestVerts[0], closestVerts[1]);
 	}
 
 
