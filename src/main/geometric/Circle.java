@@ -1,18 +1,32 @@
 package geometric;
 
+import java.math.BigDecimal;
+
+import decimals.PiFromMath;
+import decimals.PiProvider;
+
 public class Circle extends Figure {
 	
 	Point center;
-	int radius;
+	BigDecimal radius;
 
+	public Circle(BigDecimal radius) {
+		this("", new Point(0,0), radius);
+	}
 	public Circle(String name, Point center, int radius) {
+		this(name, center, new BigDecimal(radius));
+	}
+	public Circle(String name, Point center, BigDecimal radius) {
 		super(name);
 		this.center = center;
 		this.radius = radius;
 	}
 
 	public double area() {
-		return Math.PI*radius*radius;
+		return area(new PiFromMath()).doubleValue();
+	}
+	public BigDecimal area(PiProvider provider) {
+		return provider.computePi().multiply(radius.multiply(radius));
 	}
 
 	public boolean isRegular() {
@@ -20,7 +34,7 @@ public class Circle extends Figure {
 	}
 	
 	public String toString() {
-		return String.format("Name: %s, Center: %s, Radius: %d", getName(), center.toString(), radius);
+		return String.format("Name: %s, Center: %s, Radius: %.1f", getName(), center.toString(), getRadius().doubleValue());
 	}
 	
 	public Point getCenter() {
@@ -30,10 +44,10 @@ public class Circle extends Figure {
 		this.center = center;
 	}
 	
-	public int getRadius() {
+	public BigDecimal getRadius() {
 		return radius;
 	}
-	public void setRadius(int radius) {
+	public void setRadius(BigDecimal radius) {
 		this.radius = radius;
 	}
 	
