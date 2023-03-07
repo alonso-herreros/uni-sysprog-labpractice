@@ -1,4 +1,4 @@
-package rationals;
+package decimals;
 
 public class Rational {
 	private int num, denom;
