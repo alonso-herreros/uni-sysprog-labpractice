@@ -2,7 +2,7 @@ package decimals;
 
 import java.math.BigDecimal;
 
-public class PiStored implements PiProvider, AdvancedPiProvider {
+public class PiStored implements AdvancedPiProvider {
 	
 	private static final String PI = "3.14159265358979323846264338327950"
 			+ "2884197169399375105820974944592307"

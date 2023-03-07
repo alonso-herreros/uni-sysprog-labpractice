@@ -3,7 +3,7 @@ package decimals;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public class PiFromBBP implements PiProvider, AdvancedPiProvider {
+public class PiFromBBP implements AdvancedPiProvider {
 	private int precision;
 	private MathContext mc;
 
@@ -57,7 +57,6 @@ public class PiFromBBP implements PiProvider, AdvancedPiProvider {
 		return this.precision;
 	}
 
-	@Override
 	public int getMaximumPrecision() {
 		return Integer.MAX_VALUE;
 	}
