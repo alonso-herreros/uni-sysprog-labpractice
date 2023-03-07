@@ -42,16 +42,43 @@ public class Point {
 	}
 	
 	public Point nearest(Point[] points) {
-		int nearestIndex = 0;
+		return points[nearestIndex(points)];
+	}
+	public int nearestIndex(Point[] points) {
+		int index = 0;
 		for (int i=0; i<points.length; i++) {
-			if (this.distance(points[i]) < this.distance(points[nearestIndex])) {				
-				nearestIndex =  i;
+			if (this.distance(points[i]) < this.distance(points[index])) {				
+				index =  i;
 			}
 		}
-		return points[nearestIndex];
+		return index;
+	}
+	
+	public Point[] orderNearest(Point[] points) {
+		Point farthest = new Point(Float.MAX_VALUE, Float.MIN_VALUE);
+		Point[] pointsAux = points.clone();
+		Point[] pointsOrdered = new Point[points.length];
+		
+		for (int i=0; i<points.length; i++) {
+			int nearestIndex = nearestIndex(pointsAux);
+			pointsOrdered[i] = pointsAux[nearestIndex];
+			pointsAux[nearestIndex] = farthest;
+		}
+		return pointsOrdered;
 	}
 	
 	private Point vectorTo(Point point2) {
 		return new Point(point2.getX()-x, point2.getY()-y);
+	}
+	
+	public double scalarProduct(Point p2) {
+		return getY()*p2.getY() + getX()*p2.getX();
+	}
+
+	public boolean orthogonal(Point p2){
+		return scalarProduct(p2) == 0;
+	}
+	public boolean orthogonal(Point p2, Point p3) {
+		return vectorTo(p2).orthogonal(vectorTo(p3));
 	}
 }
