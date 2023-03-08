@@ -14,7 +14,7 @@ public class RectangleTest {
 	@Test
 	public void testDivisionWithException2() {
 		try {
-		int i = 1 / 0;
+		int a = 1 / 0;
 		fail("Failed test");
 		}
 		catch(ArithmeticException e) {

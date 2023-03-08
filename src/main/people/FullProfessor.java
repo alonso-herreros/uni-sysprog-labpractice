@@ -13,7 +13,6 @@ public class FullProfessor extends Person {
 	}
 
 	public float calculateNetSalary() {
-		// TODO Auto-generated method stub
 		return (salary + benefits) / 2.0f;
 	}
 	

@@ -1,7 +1,5 @@
 package decimals;
 
-import java.math.BigDecimal;
-
 /**
  * Interface to be implemented by classes that compute the number pi.
  * Classes that implement this interface can provide the value of pi

@@ -1,7 +1,5 @@
 package studentDB;
 
-import java.util.ArrayList;
-
 public interface StudentDAOApi {
 		
 	public Student[] findAll();
