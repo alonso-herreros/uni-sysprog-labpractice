@@ -13,6 +13,9 @@ public class Point {
 	public String toString() {
 		return String.format(Locale.US, "(%.2f, %.2f)", x, y);
 	}
+	public boolean equals(Point p2) {
+		return distance(p2) < 1e-10;
+	}
 	
 	public double getX() {
 		return x;
@@ -33,7 +36,7 @@ public class Point {
 		if (x == 0 || y == 0) {
 			return 0;
 		}
-		if (x > 0) {
+		if (y > 0) {
 			return (x>0)? 1 : 2;
 		} 
 		else {
@@ -81,4 +84,5 @@ public class Point {
 	public boolean orthogonal(Point p2, Point p3) {
 		return vectorTo(p2).orthogonal(vectorTo(p3));
 	}
+	
 }
