@@ -15,6 +15,13 @@ class StudentDAOMockTest {
 		sdao = new StudentDAOMock();
 		students = sdao.findAll();
 	}
+	
+	@Test
+	void testFindAll() {
+		int studentN = sdao.findAll().length;
+		assertEquals(studentN, 2); // UPDATE THIS
+		assertTrue(sdao.findAll() instanceof Student[]);
+	}
 
 	@Test
 	void testAvgGrade() {
