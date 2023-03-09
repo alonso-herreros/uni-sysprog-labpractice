@@ -8,16 +8,16 @@ public class RectangleTest {
 
 	@Test
 	public void testDivisionWithException() {
-		assertThrows(ArithmeticException.class, ()->{int a=1/0;});
+		assertThrows(ArithmeticException.class, ()->{int a=1/0; System.out.println(a);});
 	}
 	
 	@Test
 	public void testDivisionWithException2() {
 		try {
-		int a = 1 / 0;
-		fail("Failed test");
+			int a = 1 / 0;
+			fail("Failed test with value " + a);
 		}
-		catch(ArithmeticException e) {
+			catch(ArithmeticException e) {
 		}
 	}
 	
